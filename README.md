@@ -1,13 +1,14 @@
-# 基于workman的iot物联网系统
-本项目是基于workman开发的一套基础的物联网平台，可以实现设备的联网上线，日志记录，数据库操作，命令下发等功能。  
+# 基于workerman的iot物联网系统
+本项目是基于workerman开发的一套基础的物联网平台，可以实现设备的联网上线，日志记录，数据库操作，命令下发等功能。  
 目前支持mqtt协议，可轻松扩展TCP协议，阿里云AMQP等协议  
 提供测试协议供了解本项目
 
 ##  安装和使用说明
-1、克隆项目：` dd`  
+1、克隆项目：`git clone git@github.com:ZhangYanqiang/workerman-iot.git`  
 2、安装依赖： `composer install`  
 3、配置mqtt服务端，数据库，新建设备表  
-4、启动项目： `php run start_mqtt.php 或 php run start_mqtt.php -d `  
+4、在根目录创建目录 runtime/log  
+5、启动项目： `php run start_mqtt.php 或 php run start_mqtt.php -d `  
 
 ## 项目介绍  
 一个完整的物联网项目示意图如下，本项目仅实现红框中的部分
