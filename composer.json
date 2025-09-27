@@ -1,0 +1,21 @@
+{
+    "require": {
+        "workerman/workerman": "^5.1",
+        "workerman/mqtt": "^2.2",
+        "illuminate/database": "^10.49",
+        "illuminate/config": "^10.49",
+        "illuminate/filesystem": "^10.49",
+        "vlucas/phpdotenv": "^5.6",
+        "illuminate/events": "^10.49"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
+    "psr-4": {
+        "app\\" : "./app/",
+        "" : "./"
+    }
+}
