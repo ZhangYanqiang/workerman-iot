@@ -14,8 +14,10 @@
             "url": "https://mirrors.aliyun.com/composer/"
         }
     },
-    "psr-4": {
-        "app\\" : "./app/",
-        "" : "./"
+    "autoload": {
+        "psr-4": {
+            "app\\" : "./app/",
+            "" : "./"
+        }
     }
 }
