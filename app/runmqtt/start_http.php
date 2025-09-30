@@ -40,28 +40,29 @@ $http_worker->onMessage = function(TcpConnection $connection, Request $request)
     $cmd = $indata['cmd'];
     print_r($indata);
     echo PHP_EOL;
-
+    $send_cmd_msg = [];
     switch ($cmd){
         case 'RESTART': //重启设备
             //处理具体逻辑
             //比如记录日志
             //给设备发送重启指令等
-            $send_cmd_msg = "restart,11,crc"; //根据具体的设备协议获取
+            $send_cmd_msg = [
+                "cmd"=>'RESTART'
+            ]; //根据具体的设备协议获取
             break;
         default:
-            $send_cmd_msg = '';
             break;
     }
     if(empty($send_cmd_msg)){ //无需给设备发信息
         $connection->send(true); //回复http请求
     }else{ //直接给设备发送指令
         //记录日志
-        deviceLog($sn,'发送',$send_cmd_msg);
+        deviceLog($sn,'http发送',$send_cmd_msg);
         //发送指令
-        $mqtt->publish("/".config('app.product_key')."/$sn/user/get",$send_cmd_msg,[],[function($sn,$send_cmd_msg,$connection){
-            deviceLog($sn,'发送失败',$send_cmd_msg);
+        $mqtt->publish("/".config('app.product_key')."/$sn/user/get",json_encode($send_cmd_msg),[],function($sn,$send_cmd_msg,$connection){
+            deviceLog($sn,'http发送失败',$send_cmd_msg);
             $connection->send(false);
-        }]);
+        });
         $connection->send(true);
     }
 };

@@ -31,8 +31,6 @@ class Application
                 $dotEnv->load();
             }
         }
-
         return $environment;
-
     }
 }
