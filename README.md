@@ -64,7 +64,7 @@ UNIQUE KEY `device_sn` (`sn`,`deleted_at`)
 ├─app         业务代码  
 │  ├─models   数据模型---参考laravel ORM  
 │  ├─runmqtt  启动目录，mqtt客户端，http客户端  
-│  └─runtcp   TCP启动目录，tcp服务端，http客户端
+│  └─runtcp   TCP启动目录，tcp服务端，http客户端  
 ├─config      配置文件  
 ├─runtime     日志目录  
 │  └─log  
@@ -103,7 +103,8 @@ UNIQUE KEY `device_sn` (`sn`,`deleted_at`)
 - 1、`php run start_tcp.php` 启动tcp服务端
 - 2、本地运行一个tcp客户端模拟设备，建立tcp连接后，发送LOGIN消息
 - 3、服务器收到消息后，记录日志，更新设备表，并返回结果
-- 4、tcp客户端中就可以看到服务端返回的LONGIN登录结果
+- 4、tcp客户端中就可以看到服务端返回的LONGIN登录结果 
+  
 测试http，通过http主动给设备下发消息
 - 5、用postman发送RESTART指令给服务器
 - 6、如图，服务器收到http请求，记录日志，并给设备下发相关指令
