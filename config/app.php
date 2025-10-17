@@ -10,5 +10,8 @@ return [
     'mqtt_cfg'=>[
         'username'=>' ',
         'password'=>' '
-    ]
+    ],
+    'tcp' => [
+        'server'=>'tcp://0.0.0.0:8282',
+    ],
 ] ;
